@@ -44,26 +44,6 @@ ds = load_from_disk(DATA_DIR)
 processor = AutoImageProcessor.from_pretrained("microsoft/resnet-50", use_fast=True)
 model = AutoModelForImageClassification.from_pretrained("microsoft/resnet-50")
 
-# === preprocess data === #
-def preprocess_function(examples):
-    """
-    Preprocess images for training
-    """
-
-    images = examples['image']
-    inputs = processor(images, return_tensors="pt")
-    
-    # Rename 'label' to 'labels' as expected by the model
-    inputs['labels'] = examples['label']
-    
-    return inputs
-
-# Apply preprocessing - convert raw images to pixel_values
-print("Applying preprocessing to dataset...")
-ds = ds.map(preprocess_function, batched=True, remove_columns=['image', 'label'])
-print("Preprocessing complete!")
-print("New dataset columns:", ds["train"].column_names)
-
 # === evaluation === #
 accuracy = evaluate.load("accuracy")
 
@@ -75,7 +55,7 @@ def compute_metrics(eval_pred):
 # === training/fine-tuning === #
 training_args = TrainingArguments(
     output_dir=OUT_DIR,
-    eval_strategy="steps",
+    eval_strategy="epochs",
     learning_rate=LR,
     logging_dir=LOG_DIR,
     seed=SEED,
@@ -100,7 +80,7 @@ try:
     trainer.train()
 
     # evaluate
-    print("Evaluating model...")
+    print("Evaluating the final model...")
     metrics = trainer.evaluate()
     for key, value in metrics.items():
         print(f" {key}: {value}")
@@ -109,9 +89,6 @@ try:
     print(f"Saving final model to {OUT_DIR}...")
     trainer.save_model(OUT_DIR)
     processor.save_pretrained(OUT_DIR)
-    
-    with open(os.path.join(OUT_DIR, "training_info.json"), "w") as f:
-        json.dump(training_info, f, indent=2, default=str)
 
     print("Training completed successfully!")
     print(f"Final model saved to: {OUT_DIR}")
