@@ -55,7 +55,7 @@ def compute_metrics(eval_pred):
 # === training/fine-tuning === #
 training_args = TrainingArguments(
     output_dir=OUT_DIR,
-    eval_strategy="epochs",
+    eval_strategy="epoch",
     learning_rate=LR,
     logging_dir=LOG_DIR,
     seed=SEED,
@@ -75,6 +75,7 @@ trainer = Trainer(
 )
 
 # === training loop === #
+print("using device: {DEVICE}")
 print("Start training...")
 try:
     trainer.train()
