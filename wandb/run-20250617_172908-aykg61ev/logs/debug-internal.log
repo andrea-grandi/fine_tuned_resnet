@@ -1,0 +1,16 @@
+{"time":"2025-06-17T17:29:08.522631+02:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"/Users/andreagrandi/Developer/resnet_classifier/wandb/run-20250617_172908-aykg61ev/logs/debug-core.log"}
+{"time":"2025-06-17T17:29:08.813658+02:00","level":"INFO","msg":"stream: created new stream","id":"aykg61ev"}
+{"time":"2025-06-17T17:29:08.813702+02:00","level":"INFO","msg":"stream: started","id":"aykg61ev"}
+{"time":"2025-06-17T17:29:08.813772+02:00","level":"INFO","msg":"sender: started","stream_id":"aykg61ev"}
+{"time":"2025-06-17T17:29:08.813793+02:00","level":"INFO","msg":"handler: started","stream_id":"aykg61ev"}
+{"time":"2025-06-17T17:29:08.814084+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"aykg61ev"}
+{"time":"2025-06-17T17:29:09.237591+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-17T17:29:09.308902+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-17T17:29:09.308946+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-17T17:29:10.319689+02:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.551581708,"progress":"458B/458B"},{"desc":"uploading config.yaml","runtime_seconds":0.264731083,"progress":"77.3KB/77.3KB"}],"total_operations":2}}
+{"time":"2025-06-17T17:29:10.667524+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-17T17:29:10.955767+02:00","level":"INFO","msg":"stream: closing","id":"aykg61ev"}
+{"time":"2025-06-17T17:29:10.955781+02:00","level":"INFO","msg":"handler: closed","stream_id":"aykg61ev"}
+{"time":"2025-06-17T17:29:10.955789+02:00","level":"INFO","msg":"sender: closed","stream_id":"aykg61ev"}
+{"time":"2025-06-17T17:29:10.955993+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"aykg61ev"}
+{"time":"2025-06-17T17:29:10.956013+02:00","level":"INFO","msg":"stream: closed","id":"aykg61ev"}
